@@ -51,14 +51,13 @@ public class Ajouter extends HttpServlet {
 		String name = request.getParameter("pName");
 		String pDate = request.getParameter("pDateNaiss");
 
-		LocalDate localDate = LocalDate.now(); // For reference
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("y-M-d");
 		LocalDate dateFormatted = LocalDate.parse(pDate, formatter);
 		
 		ressource.getGroupe().Ajouter(new Personne(dateFormatted, name));
 		
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("name", name);
+		request.getRequestDispatcher("/list.jsp").forward(request, response);
 		
 		
 	}
