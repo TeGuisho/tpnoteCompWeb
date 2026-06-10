@@ -6,6 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import personne.Personne;
 import personne.Ressources;
 
 /**
@@ -30,7 +35,7 @@ public class Ajouter extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		
 		
 	}
@@ -41,6 +46,21 @@ public class Ajouter extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		
+		String name = request.getParameter("pName");
+		String pDate = request.getParameter("pDateNaiss");
+
+		LocalDate localDate = LocalDate.now(); // For reference
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
+		LocalDate dateFormatted = LocalDate.parse(pDate, formatter);
+		
+		ressource.getGroupe().Ajouter(new Personne(dateFormatted, name));
+		
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
 }

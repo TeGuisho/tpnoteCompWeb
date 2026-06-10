@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 import java.time.Period;
 
 public class Personne {
-	private Date DateNaissance;
+	private LocalDate DateNaissance;
 	private String Nom;
 	private boolean EstAdulte;
 	
-	public Personne(Date DateNaissance, String Nom) {
+	public Personne(LocalDate DateNaissance, String Nom) {
 		this.Nom = Nom;
 		this.DateNaissance = DateNaissance;
 		if (this.calculateAge(DateNaissance,LocalDateTime.now()) > 18) {
@@ -20,18 +20,19 @@ public class Personne {
 		}
 	}
 	
-	private int calculateAge(Date dateNaissance2, LocalDateTime localDateTime) {
+	private int calculateAge(LocalDate dateNaissance2, LocalDateTime localDateTime) {
         Period period = Period.between(dateNaissance2, localDateTime);
           return period.getYears();
     }
 	
 	public int getAge() {
-		return this.calculateAge(DateNaissance,LocalDateTime.now()
+		return this.calculateAge(DateNaissance,LocalDateTime.now();
 	}
 	
 	public String getNom() {
 		return Nom;
 	}
+	
 	
 
 }
