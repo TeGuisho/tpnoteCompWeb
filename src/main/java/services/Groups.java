@@ -1,27 +1,27 @@
 package services;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.annotation.WebServlet;
 import personne.Ressources;
 
 /**
- * Servlet implementation class Ajouter
+ * Servlet implementation class Groups
  */
-@WebServlet("/Ajouter")
-public class Ajouter extends HttpServlet {
+@WebServlet("/Groups")
+public class Groups extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Ressources ressource = Ressources.Init();
-       
-    /**	
-     * @see HttpServlet#HttpServlet()
+	
+    /**
+     * Default constructor. 
      */
-    public Ajouter() {
-        super();
+    public Groups() {
         // TODO Auto-generated constructor stub
     }
 
@@ -31,8 +31,6 @@ public class Ajouter extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		
 	}
 
 	/**
