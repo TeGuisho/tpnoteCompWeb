@@ -13,7 +13,6 @@
     <c:forEach items="${groupes}" var="groupe">
         <tr>
             <td>Groupe ID: <c:out value="${groupe.id}"/></td>
-            <td>Groupe Name: <c:out value="${groupe.nom}"/></td>
             <td>Tarifs du groupe: <c:out value="${groupe.tarifs}"/></td>
         </tr>
     </c:forEach>
