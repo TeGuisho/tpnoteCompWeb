@@ -1,0 +1,34 @@
+package personne;
+
+import java.sql.Date;
+
+public class Personne {
+	private Date DateNaissance;
+	private String Nom;
+	private boolean EstAdulte;
+	
+	public Personne(Date DateNaissance, String Nom) {
+		this.Nom = Nom;
+		this.DateNaissance = DateNaissance;
+		if (this.calculateAge(DateNaissance,LocalDateTime.now()) > 18) {
+			this.EstAdulte = true;
+		}else {
+			this.EstAdulte = false;
+		}
+	}
+	
+	private int calculateAge(LocalDate birthdate, LocalDate currentDate) {
+        Period period = Period.between(birthdate, currentDate);
+          return period.getYears();
+    }
+	
+	public int getAge() {
+		return this.calculateAge(DateNaissance,LocalDateTime.now()
+	}
+	
+	public String getNom() {
+		return Nom;
+	}
+	
+
+}
